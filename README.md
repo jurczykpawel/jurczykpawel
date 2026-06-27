@@ -27,6 +27,11 @@ Self-hostable form-to-email + transactional email sender on Cloudflare Workers (
 
 <sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 1</sub>
 
+### [poststack](https://github.com/jurczykpawel/poststack)
+Self-hosted, source-available Facebook & Instagram automation: publishing & scheduling, inbox auto-replies, drip sequences and a contacts CRM. A ManyChat / Buffer alternative you fully own.
+
+<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 1</sub>
+
 ### [captions-cli](https://github.com/jurczykpawel/captions-cli)
 Burn word-level karaoke captions onto videos — local Whisper + ffmpeg/libass, zero SaaS.
 
@@ -44,11 +49,6 @@ Universal REST API gateway for Poland's KSeF (National e-Invoice System), wrappi
 
 ### [mikrus-n8n-manager](https://github.com/jurczykpawel/mikrus-n8n-manager)
 —
-
-<sub>🟦 TypeScript</sub>
-
-### [poststack](https://github.com/jurczykpawel/poststack)
-Self-hosted, source-available Facebook & Instagram automation: publishing & scheduling, inbox auto-replies, drip sequences and a contacts CRM. A ManyChat / Buffer alternative you fully own.
 
 <sub>🟦 TypeScript</sub>
 
