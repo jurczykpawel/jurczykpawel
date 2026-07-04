@@ -32,6 +32,11 @@ Self-hosted, source-available Facebook & Instagram automation: publishing & sche
 
 <sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 1</sub>
 
+### [voicetype](https://github.com/jurczykpawel/voicetype)
+Free, fully local dictation for macOS — a self-hosted SuperWhisper alternative (whisper.cpp + Keyboard Maestro + Raycast). No API, no subscription, offline.
+
+<sub>🐚 Shell &nbsp;·&nbsp; ⭐ 1</sub>
+
 ### [captions-cli](https://github.com/jurczykpawel/captions-cli)
 Burn word-level karaoke captions onto videos — local Whisper + ffmpeg/libass, zero SaaS.
 
@@ -54,11 +59,6 @@ Universal REST API gateway for Poland's KSeF (National e-Invoice System), wrappi
 
 ### [stackpilot](https://github.com/jurczykpawel/stackpilot)
 The AI-native self-hosting toolkit. Deploy 25+ production-optimized Docker apps to any VPS with a single command.
-
-<sub>🐚 Shell</sub>
-
-### [voicetype](https://github.com/jurczykpawel/voicetype)
-Free, fully local dictation for macOS — a self-hosted SuperWhisper alternative (whisper.cpp + Keyboard Maestro + Raycast). No API, no subscription, offline.
 
 <sub>🐚 Shell</sub>
 <!-- PROJECTS:END -->
