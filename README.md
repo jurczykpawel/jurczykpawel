@@ -12,15 +12,15 @@ I use AI to build open source tools that replace expensive SaaS, so you can run 
 ## My Projects
 
 <!-- PROJECTS:START -->
+### [ai-api-catalog](https://github.com/jurczykpawel/ai-api-catalog)
+Compare prices & providers for 2000+ AI models — LLMs, video, image, audio
+
+<sub>🐍 Python &nbsp;·&nbsp; ⭐ 2</sub>
+
 ### [sellf](https://github.com/jurczykpawel/sellf)
 Self-hosted platform for selling digital products. Stripe payments, sales funnels, 0% platform fees.
 
 <sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 2</sub>
-
-### [ai-api-catalog](https://github.com/jurczykpawel/ai-api-catalog)
-Compare prices & providers for 2000+ AI models — LLMs, video, image, audio
-
-<sub>🐍 Python &nbsp;·&nbsp; ⭐ 1</sub>
 
 ### [mailstack](https://github.com/jurczykpawel/mailstack)
 Self-hostable form-to-email + transactional email sender on Cloudflare Workers (Amazon SES + Cloudflare Turnstile). Multi-brand, branded templates, optional webhook adapters.
