@@ -3,6 +3,7 @@
 // Zero dependencies — uses native fetch (Node 20+). Runs in CI on a schedule.
 
 import { readFile, writeFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
 
 const USER = "jurczykpawel";
 const README = new URL("../../README.md", import.meta.url);
@@ -43,11 +44,11 @@ async function fetchAllRepos() {
   return repos;
 }
 
-function isOwnProject(r) {
+export function isOwnProject(r) {
   return !r.fork && !r.archived && !r.private && !EXCLUDE.has(r.name.toLowerCase());
 }
 
-function renderProjects(repos) {
+export function renderProjects(repos) {
   const sorted = repos
     .filter(isOwnProject)
     .sort((a, b) => b.stargazers_count - a.stargazers_count || a.name.localeCompare(b.name));
@@ -65,18 +66,24 @@ function renderProjects(repos) {
   return { count: sorted.length, body: lines.join("\n\n") };
 }
 
-function replaceSection(content, name, replacement) {
+export function replaceSection(content, name, replacement) {
   const re = new RegExp(`(<!-- ${name}:START -->)([\\s\\S]*?)(<!-- ${name}:END -->)`);
   if (!re.test(content)) throw new Error(`Markers for ${name} not found in README`);
   return content.replace(re, `$1\n${replacement}\n$3`);
 }
 
-const repos = await fetchAllRepos();
-const { count, body } = renderProjects(repos);
+export async function main() {
+  const repos = await fetchAllRepos();
+  const { count, body } = renderProjects(repos);
 
-let readme = await readFile(README, "utf8");
-readme = replaceSection(readme, "PROJECTS", body);
-readme = replaceSection(readme, "COUNT", `**${count}** public projects with available code`);
-await writeFile(README, readme);
+  let readme = await readFile(README, "utf8");
+  readme = replaceSection(readme, "PROJECTS", body);
+  readme = replaceSection(readme, "COUNT", `**${count}** public projects with available code`);
+  await writeFile(README, readme);
 
-console.log(`Updated README: ${count} projects.`);
+  console.log(`Updated README: ${count} projects.`);
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  await main();
+}
