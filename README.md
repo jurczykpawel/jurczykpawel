@@ -5,7 +5,7 @@
 I use AI to build open source tools that replace expensive SaaS, so you can run your business on your own server for a fraction of the cost.
 
 <!-- COUNT:START -->
-**10** public projects with available code
+**10** public projects &nbsp;·&nbsp; **⭐ 7** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · PHP · Python
 <!-- COUNT:END -->
 &nbsp;·&nbsp; auto-updated nightly from GitHub 🤖
 
@@ -72,6 +72,9 @@ The AI-native self-hosting toolkit. Deploy 25+ production-optimized Docker apps 
 <!-- PROJECTS:END -->
 
 <!-- CONTRIB:START -->
+## Contributions Elsewhere
+
+- **[Add JSON API endpoint (POST /api/shorten)](https://github.com/unkn0w/justopen.app/pull/1)** in [unkn0w/justopen.app](https://github.com/unkn0w/justopen.app) — merged 2026-06-22
 <!-- CONTRIB:END -->
 
 ## Stack & Tools
