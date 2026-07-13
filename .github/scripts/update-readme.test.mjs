@@ -174,6 +174,8 @@ test("fetchContributions queries the search API for merged PRs by the profile us
     assert.match(url, /author%3Ajurczykpawel/);
     assert.match(url, /type%3Apr/);
     assert.match(url, /is%3Amerged/);
+    assert.match(url, /per_page=100/);
+    assert.match(url, /sort=updated/);
     return { ok: true, json: async () => ({ items: [{ title: "x" }] }) };
   };
 

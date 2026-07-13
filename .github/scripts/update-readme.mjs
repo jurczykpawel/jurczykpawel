@@ -140,7 +140,7 @@ export function renderLive(results) {
 export async function fetchContributions(fetchImpl = fetch) {
   const q = encodeURIComponent(`author:${USER} type:pr is:merged`);
   const res = await fetchImpl(
-    `https://api.github.com/search/issues?q=${q}&sort=created&order=desc&per_page=100`,
+    `https://api.github.com/search/issues?q=${q}&sort=updated&order=desc&per_page=100`,
     { headers }
   );
   if (!res.ok) throw new Error(`GitHub search API ${res.status}: ${await res.text()}`);
