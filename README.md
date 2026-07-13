@@ -9,6 +9,14 @@ I use AI to build open source tools that replace expensive SaaS, so you can run 
 <!-- COUNT:END -->
 &nbsp;·&nbsp; auto-updated nightly from GitHub 🤖
 
+## Live Products
+
+<!-- LIVE:START -->
+✅ [TechSkills Academy](https://techskills.academy)
+✅ [Sellf](https://sellf.techskills.academy)
+✅ [PostStack](https://poststack.techskills.academy)
+<!-- LIVE:END -->
+
 ## My Projects
 
 <!-- PROJECTS:START -->

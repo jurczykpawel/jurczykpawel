@@ -22,6 +22,15 @@ const LANG_EMOJI = {
   PHP: "🐘", "C#": "🎯", HTML: "🌐", Go: "🐹", Rust: "🦀", Ruby: "💎",
 };
 
+// Live self-hosted products to show as proof the "self-host everything" pitch is real.
+const LIVE_PRODUCTS = [
+  { name: "TechSkills Academy", url: "https://techskills.academy" },
+  { name: "Sellf", url: "https://sellf.techskills.academy" },
+  { name: "PostStack", url: "https://poststack.techskills.academy" },
+];
+
+const LIVE_CHECK_TIMEOUT_MS = 5000;
+
 const token = process.env.GITHUB_TOKEN;
 const headers = {
   Accept: "application/vnd.github+json",
@@ -88,6 +97,45 @@ export function renderStats({ count, totalStars, languages }) {
   return parts.join(" &nbsp;·&nbsp; ");
 }
 
+async function attempt(url, method, fetchImpl) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), LIVE_CHECK_TIMEOUT_MS);
+  try {
+    return await fetchImpl(url, { method, redirect: "follow", signal: controller.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+export async function pingUrl(url, fetchImpl = fetch) {
+  try {
+    const headRes = await attempt(url, "HEAD", fetchImpl);
+    if (headRes.ok) return true;
+  } catch {
+    // HEAD failed outright — fall through and try GET.
+  }
+
+  try {
+    const getRes = await attempt(url, "GET", fetchImpl);
+    return getRes.ok;
+  } catch {
+    return false;
+  }
+}
+
+export async function checkLiveStatus(products, fetchImpl = fetch) {
+  const results = [];
+  for (const product of products) {
+    const ok = await pingUrl(product.url, fetchImpl);
+    results.push({ ...product, ok });
+  }
+  return results;
+}
+
+export function renderLive(results) {
+  return results.map((r) => `${r.ok ? "✅" : "⚠️"} [${r.name}](${r.url})`).join("\n");
+}
+
 export function replaceSection(content, name, replacement) {
   const re = new RegExp(`(<!-- ${name}:START -->)([\\s\\S]*?)(<!-- ${name}:END -->)`);
   if (!re.test(content)) throw new Error(`Markers for ${name} not found in README`);
@@ -98,10 +146,12 @@ export async function main() {
   const repos = await fetchAllRepos();
   const { count, body } = renderProjects(repos);
   const stats = computeStats(repos);
+  const liveResults = await checkLiveStatus(LIVE_PRODUCTS);
 
   let readme = await readFile(README, "utf8");
   readme = replaceSection(readme, "PROJECTS", body);
   readme = replaceSection(readme, "COUNT", renderStats(stats));
+  readme = replaceSection(readme, "LIVE", renderLive(liveResults));
   await writeFile(README, readme);
 
   console.log(`Updated README: ${count} projects.`);

@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { isOwnProject, renderProjects, replaceSection, computeStats, renderStats } from "./update-readme.mjs";
+import { isOwnProject, renderProjects, replaceSection, computeStats, renderStats, pingUrl, checkLiveStatus, renderLive } from "./update-readme.mjs";
 
 test("isOwnProject excludes forks, archived, private, and the curated exclude list", () => {
   assert.equal(isOwnProject({ name: "sellf", fork: false, archived: false, private: false }), true);
@@ -61,4 +61,58 @@ test("renderStats formats the count, star total, and language list", () => {
 test("renderStats omits the language segment when there are no languages", () => {
   const line = renderStats({ count: 0, totalStars: 0, languages: [] });
   assert.equal(line, "**0** public projects &nbsp;·&nbsp; **⭐ 0** total stars");
+});
+
+test("pingUrl returns true when HEAD succeeds", async () => {
+  const fetchImpl = async (_url, opts) => {
+    assert.equal(opts.method, "HEAD");
+    return { ok: true, status: 200 };
+  };
+  assert.equal(await pingUrl("https://example.com", fetchImpl), true);
+});
+
+test("pingUrl falls back to GET when HEAD returns an error status", async () => {
+  const calls = [];
+  const fetchImpl = async (_url, opts) => {
+    calls.push(opts.method);
+    if (opts.method === "HEAD") return { ok: false, status: 405 };
+    return { ok: true, status: 200 };
+  };
+  assert.equal(await pingUrl("https://example.com", fetchImpl), true);
+  assert.deepEqual(calls, ["HEAD", "GET"]);
+});
+
+test("pingUrl returns false when both HEAD and GET fail", async () => {
+  const fetchImpl = async () => ({ ok: false, status: 500 });
+  assert.equal(await pingUrl("https://example.com", fetchImpl), false);
+});
+
+test("pingUrl returns false when fetch throws (network error or timeout)", async () => {
+  const fetchImpl = async () => {
+    throw new Error("network down");
+  };
+  assert.equal(await pingUrl("https://example.com", fetchImpl), false);
+});
+
+test("checkLiveStatus checks each product and preserves name/url", async () => {
+  const products = [
+    { name: "Up Site", url: "https://up.example.com" },
+    { name: "Down Site", url: "https://down.example.com" },
+  ];
+  const fetchImpl = async (url) => ({ ok: url.includes("up."), status: url.includes("up.") ? 200 : 500 });
+
+  const results = await checkLiveStatus(products, fetchImpl);
+
+  assert.deepEqual(results, [
+    { name: "Up Site", url: "https://up.example.com", ok: true },
+    { name: "Down Site", url: "https://down.example.com", ok: false },
+  ]);
+});
+
+test("renderLive renders a checkmark line per product", () => {
+  const line = renderLive([
+    { name: "Up Site", url: "https://up.example.com", ok: true },
+    { name: "Down Site", url: "https://down.example.com", ok: false },
+  ]);
+  assert.equal(line, "✅ [Up Site](https://up.example.com)\n⚠️ [Down Site](https://down.example.com)");
 });
