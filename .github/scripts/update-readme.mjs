@@ -66,6 +66,28 @@ export function renderProjects(repos) {
   return { count: sorted.length, body: lines.join("\n\n") };
 }
 
+export function computeStats(repos) {
+  const owned = repos.filter(isOwnProject);
+  const totalStars = owned.reduce((sum, r) => sum + r.stargazers_count, 0);
+
+  const langCounts = new Map();
+  for (const r of owned) {
+    if (!r.language) continue;
+    langCounts.set(r.language, (langCounts.get(r.language) || 0) + 1);
+  }
+  const languages = [...langCounts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([lang]) => lang);
+
+  return { count: owned.length, totalStars, languages };
+}
+
+export function renderStats({ count, totalStars, languages }) {
+  const parts = [`**${count}** public projects`, `**⭐ ${totalStars}** total stars`];
+  if (languages.length) parts.push(languages.join(" · "));
+  return parts.join(" &nbsp;·&nbsp; ");
+}
+
 export function replaceSection(content, name, replacement) {
   const re = new RegExp(`(<!-- ${name}:START -->)([\\s\\S]*?)(<!-- ${name}:END -->)`);
   if (!re.test(content)) throw new Error(`Markers for ${name} not found in README`);
@@ -75,10 +97,11 @@ export function replaceSection(content, name, replacement) {
 export async function main() {
   const repos = await fetchAllRepos();
   const { count, body } = renderProjects(repos);
+  const stats = computeStats(repos);
 
   let readme = await readFile(README, "utf8");
   readme = replaceSection(readme, "PROJECTS", body);
-  readme = replaceSection(readme, "COUNT", `**${count}** public projects with available code`);
+  readme = replaceSection(readme, "COUNT", renderStats(stats));
   await writeFile(README, readme);
 
   console.log(`Updated README: ${count} projects.`);
