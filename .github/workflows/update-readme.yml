@@ -23,6 +23,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Run tests
+        run: node --test .github/scripts/
+
       - name: Regenerate README sections
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
