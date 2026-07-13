@@ -71,6 +71,9 @@ The AI-native self-hosting toolkit. Deploy 25+ production-optimized Docker apps 
 <sub>🐚 Shell</sub>
 <!-- PROJECTS:END -->
 
+<!-- CONTRIB:START -->
+<!-- CONTRIB:END -->
+
 ## Stack & Tools
 
 - **Automation:** n8n (advanced, early adopter), Home Assistant, custom workflows

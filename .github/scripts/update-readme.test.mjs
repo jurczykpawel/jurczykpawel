@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { isOwnProject, renderProjects, replaceSection, computeStats, renderStats, pingUrl, checkLiveStatus, renderLive } from "./update-readme.mjs";
+import { isOwnProject, renderProjects, replaceSection, computeStats, renderStats, pingUrl, checkLiveStatus, renderLive, isExternalPR, renderContributions, fetchContributions } from "./update-readme.mjs";
 
 test("isOwnProject excludes forks, archived, private, and the curated exclude list", () => {
   assert.equal(isOwnProject({ name: "sellf", fork: false, archived: false, private: false }), true);
@@ -115,4 +115,74 @@ test("renderLive renders a checkmark line per product", () => {
     { name: "Down Site", url: "https://down.example.com", ok: false },
   ]);
   assert.equal(line, "✅ [Up Site](https://up.example.com)\n⚠️ [Down Site](https://down.example.com)");
+});
+
+test("isExternalPR is true for repos not owned by the profile user", () => {
+  assert.equal(isExternalPR({ repository_url: "https://api.github.com/repos/someone-else/their-repo" }), true);
+  assert.equal(isExternalPR({ repository_url: "https://api.github.com/repos/jurczykpawel/sellf" }), false);
+});
+
+test("renderContributions renders up to 6 items, newest merge first, with a heading", () => {
+  const items = Array.from({ length: 8 }, (_, i) => ({
+    title: `Fix ${i}`,
+    html_url: `https://github.com/owner/repo/pull/${i}`,
+    repository_url: "https://api.github.com/repos/owner/repo",
+    pull_request: { merged_at: `2026-01-${String(i + 1).padStart(2, "0")}T00:00:00Z` },
+    closed_at: `2026-01-${String(i + 1).padStart(2, "0")}T00:00:00Z`,
+  }));
+
+  const body = renderContributions(items);
+  const lines = body.split("\n").filter(Boolean);
+
+  assert.match(lines[0], /^## Contributions Elsewhere$/);
+  assert.equal(lines.length - 1, 6);
+  assert.match(lines[1], /Fix 7/);
+  assert.match(lines[1], /merged 2026-01-08/);
+});
+
+test("renderContributions excludes PRs in the user's own repos", () => {
+  const items = [
+    {
+      title: "Own repo PR",
+      html_url: "https://github.com/jurczykpawel/sellf/pull/1",
+      repository_url: "https://api.github.com/repos/jurczykpawel/sellf",
+      pull_request: { merged_at: "2026-01-01T00:00:00Z" },
+      closed_at: "2026-01-01T00:00:00Z",
+    },
+    {
+      title: "External PR",
+      html_url: "https://github.com/owner/repo/pull/2",
+      repository_url: "https://api.github.com/repos/owner/repo",
+      pull_request: { merged_at: "2026-01-02T00:00:00Z" },
+      closed_at: "2026-01-02T00:00:00Z",
+    },
+  ];
+
+  const body = renderContributions(items);
+
+  assert.doesNotMatch(body, /Own repo PR/);
+  assert.match(body, /External PR/);
+});
+
+test("renderContributions returns an empty string when there are no external merged PRs", () => {
+  assert.equal(renderContributions([]), "");
+});
+
+test("fetchContributions queries the search API for merged PRs by the profile user", async () => {
+  const fetchImpl = async (url) => {
+    assert.match(url, /search\/issues\?q=/);
+    assert.match(url, /author%3Ajurczykpawel/);
+    assert.match(url, /type%3Apr/);
+    assert.match(url, /is%3Amerged/);
+    return { ok: true, json: async () => ({ items: [{ title: "x" }] }) };
+  };
+
+  const items = await fetchContributions(fetchImpl);
+
+  assert.deepEqual(items, [{ title: "x" }]);
+});
+
+test("fetchContributions throws when the search API responds with an error", async () => {
+  const fetchImpl = async () => ({ ok: false, status: 403, text: async () => "rate limited" });
+  await assert.rejects(() => fetchContributions(fetchImpl));
 });

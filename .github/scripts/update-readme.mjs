@@ -30,6 +30,7 @@ const LIVE_PRODUCTS = [
 ];
 
 const LIVE_CHECK_TIMEOUT_MS = 5000;
+const CONTRIBUTIONS_LIMIT = 6;
 
 const token = process.env.GITHUB_TOKEN;
 const headers = {
@@ -136,6 +137,44 @@ export function renderLive(results) {
   return results.map((r) => `${r.ok ? "✅" : "⚠️"} [${r.name}](${r.url})`).join("\n");
 }
 
+export async function fetchContributions(fetchImpl = fetch) {
+  const q = encodeURIComponent(`author:${USER} type:pr is:merged`);
+  const res = await fetchImpl(
+    `https://api.github.com/search/issues?q=${q}&sort=created&order=desc&per_page=20`,
+    { headers }
+  );
+  if (!res.ok) throw new Error(`GitHub search API ${res.status}: ${await res.text()}`);
+  const { items } = await res.json();
+  return items;
+}
+
+export function isExternalPR(item) {
+  return !item.repository_url.startsWith(`https://api.github.com/repos/${USER}/`);
+}
+
+export function renderContributions(items) {
+  const external = items
+    .filter(isExternalPR)
+    .map((item) => ({
+      title: item.title,
+      url: item.html_url,
+      repoFullName: item.repository_url.replace("https://api.github.com/repos/", ""),
+      mergedAt: item.pull_request?.merged_at || item.closed_at,
+    }))
+    .sort((a, b) => new Date(b.mergedAt) - new Date(a.mergedAt))
+    .slice(0, CONTRIBUTIONS_LIMIT);
+
+  if (external.length === 0) return "";
+
+  const lines = external.map(({ title, url, repoFullName, mergedAt }) => {
+    const repoUrl = `https://github.com/${repoFullName}`;
+    const mergedDate = mergedAt ? mergedAt.slice(0, 10) : "";
+    return `- **[${title}](${url})** in [${repoFullName}](${repoUrl})${mergedDate ? ` — merged ${mergedDate}` : ""}`;
+  });
+
+  return `## Contributions Elsewhere\n\n${lines.join("\n")}`;
+}
+
 export function replaceSection(content, name, replacement) {
   const re = new RegExp(`(<!-- ${name}:START -->)([\\s\\S]*?)(<!-- ${name}:END -->)`);
   if (!re.test(content)) throw new Error(`Markers for ${name} not found in README`);
@@ -147,11 +186,13 @@ export async function main() {
   const { count, body } = renderProjects(repos);
   const stats = computeStats(repos);
   const liveResults = await checkLiveStatus(LIVE_PRODUCTS);
+  const contributions = await fetchContributions();
 
   let readme = await readFile(README, "utf8");
   readme = replaceSection(readme, "PROJECTS", body);
   readme = replaceSection(readme, "COUNT", renderStats(stats));
   readme = replaceSection(readme, "LIVE", renderLive(liveResults));
+  readme = replaceSection(readme, "CONTRIB", renderContributions(contributions));
   await writeFile(README, readme);
 
   console.log(`Updated README: ${count} projects.`);
