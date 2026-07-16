@@ -88,7 +88,14 @@ The AI-native self-hosting toolkit. Deploy 25+ production-optimized Docker apps 
 
 > *"Why pay hundreds per month for SaaS when you can self-host for nearly free?"*
 
-I automate everything I can so I have to do less manually. Early n8n adopter (before it was cool). Open source contributor. Lazy engineer by design.
+I automate everything I can so I have to do less manually. Early n8n adopter (before it was cool). Open source contributor. Automation-first by design.
+
+## Support
+
+Everything I publish here is free. If one of these tools saves you time or money,
+you can leave a tip — it keeps the servers running and the updates coming:
+
+[![❤️ Support my work](https://img.shields.io/badge/❤️_Support_my_work-FFDD00)](https://sellf.techskills.academy/checkout/tip?utm_source=github&utm_medium=readme&utm_campaign=tip-jar)
 
 ## Links
 
