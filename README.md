@@ -5,7 +5,7 @@
 I use AI to build open source tools that replace expensive SaaS, so you can run your business on your own server for a fraction of the cost.
 
 <!-- COUNT:START -->
-**10** public projects &nbsp;·&nbsp; **⭐ 7** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · PHP · Python
+**11** public projects &nbsp;·&nbsp; **⭐ 7** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · PHP · Python
 <!-- COUNT:END -->
 &nbsp;·&nbsp; auto-updated nightly from GitHub 🤖
 
@@ -55,6 +55,11 @@ Self-hosted animated countdown timer GIF generator for emails and web. 5 presets
 
 <sub>🐘 PHP</sub>
 
+### [hyperframes-double-mount-repro](https://github.com/jurczykpawel/hyperframes-double-mount-repro)
+—
+
+<sub>🌐 HTML</sub>
+
 ### [ksef-gateway](https://github.com/jurczykpawel/ksef-gateway)
 Universal REST API gateway for Poland's KSeF (National e-Invoice System), wrapping the official Ministry of Finance C# SDK
 
@@ -74,6 +79,7 @@ The AI-native self-hosting toolkit. Deploy 25+ production-optimized Docker apps 
 <!-- CONTRIB:START -->
 ## Contributions Elsewhere
 
+- **[fix(registry): position flowchart typing beats with label-relative offsets](https://github.com/heygen-com/hyperframes/pull/2549)** in [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) — merged 2026-07-17
 - **[Add JSON API endpoint (POST /api/shorten)](https://github.com/unkn0w/justopen.app/pull/1)** in [unkn0w/justopen.app](https://github.com/unkn0w/justopen.app) — merged 2026-06-22
 <!-- CONTRIB:END -->
 
