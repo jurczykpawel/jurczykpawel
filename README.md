@@ -5,7 +5,7 @@
 I use AI to build open source tools that replace expensive SaaS, so you can run your business on your own server for a fraction of the cost.
 
 <!-- COUNT:START -->
-**11** public projects &nbsp;·&nbsp; **⭐ 8** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · PHP · Python
+**12** public projects &nbsp;·&nbsp; **⭐ 8** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · PHP · Python
 <!-- COUNT:END -->
 &nbsp;·&nbsp; auto-updated nightly from GitHub 🤖
 
@@ -74,6 +74,9 @@ Universal REST API gateway for Poland's KSeF (National e-Invoice System), wrappi
 The AI-native self-hosting toolkit. Deploy 25+ production-optimized Docker apps to any VPS with a single command.
 
 <sub>🐚 Shell</sub>
+
+### [tripAgent](https://github.com/jurczykpawel/tripAgent)
+—
 <!-- PROJECTS:END -->
 
 <!-- CONTRIB:START -->
