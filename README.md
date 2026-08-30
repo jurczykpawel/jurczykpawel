@@ -5,7 +5,7 @@
 I use AI to build open source tools that replace expensive SaaS, so you can run your business on your own server for a fraction of the cost.
 
 <!-- COUNT:START -->
-**12** public projects &nbsp;·&nbsp; **⭐ 15** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · PHP · Python
+**12** public projects &nbsp;·&nbsp; **⭐ 16** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · PHP · Python
 <!-- COUNT:END -->
 &nbsp;·&nbsp; auto-updated nightly from GitHub 🤖
 
@@ -30,13 +30,13 @@ Compare prices & providers for 2000+ AI models — LLMs, video, image, audio
 
 <sub>🐍 Python &nbsp;·&nbsp; ⭐ 3</sub>
 
-### [mailstack](https://github.com/jurczykpawel/mailstack)
-Self-hostable form-to-email + transactional email sender on Cloudflare Workers (Amazon SES + Cloudflare Turnstile). Multi-brand, branded templates, optional webhook adapters.
-
-<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 2</sub>
-
 ### [poststack](https://github.com/jurczykpawel/poststack)
 Self-hosted, source-available Facebook & Instagram automation: publishing & scheduling, inbox auto-replies, drip sequences and a contacts CRM. A ManyChat / Buffer alternative you fully own.
+
+<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 3</sub>
+
+### [mailstack](https://github.com/jurczykpawel/mailstack)
+Self-hostable form-to-email + transactional email sender on Cloudflare Workers (Amazon SES + Cloudflare Turnstile). Multi-brand, branded templates, optional webhook adapters.
 
 <sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 2</sub>
 
