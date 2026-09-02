@@ -5,7 +5,7 @@
 I use AI to build open source tools that replace expensive SaaS, so you can run your business on your own server for a fraction of the cost.
 
 <!-- COUNT:START -->
-**12** public projects &nbsp;·&nbsp; **⭐ 17** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · PHP · Python
+**12** public projects &nbsp;·&nbsp; **⭐ 18** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · PHP · Python
 <!-- COUNT:END -->
 &nbsp;·&nbsp; auto-updated nightly from GitHub 🤖
 
@@ -28,7 +28,7 @@ Self-hosted platform for selling digital products. Stripe payments, sales funnel
 ### [poststack](https://github.com/jurczykpawel/poststack)
 Self-hosted, source-available Facebook & Instagram automation: publishing & scheduling, inbox auto-replies, drip sequences and a contacts CRM. A ManyChat / Buffer alternative you fully own.
 
-<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 4</sub>
+<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 5</sub>
 
 ### [ai-api-catalog](https://github.com/jurczykpawel/ai-api-catalog)
 Compare prices & providers for 2000+ AI models — LLMs, video, image, audio
