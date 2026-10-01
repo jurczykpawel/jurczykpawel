@@ -5,7 +5,7 @@
 I use AI to build open source tools that replace expensive SaaS, so you can run your business on your own server for a fraction of the cost.
 
 <!-- COUNT:START -->
-**12** public projects &nbsp;·&nbsp; **⭐ 29** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · PHP · Python
+**12** public projects &nbsp;·&nbsp; **⭐ 30** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · PHP · Python
 <!-- COUNT:END -->
 &nbsp;·&nbsp; auto-updated nightly from GitHub 🤖
 
@@ -38,7 +38,7 @@ Compare prices & providers for 2000+ AI models — LLMs, video, image, audio
 ### [mailstack](https://github.com/jurczykpawel/mailstack)
 Self-hostable form-to-email + transactional email sender on Cloudflare Workers (Amazon SES + Cloudflare Turnstile). Multi-brand, branded templates, optional webhook adapters.
 
-<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 2</sub>
+<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 3</sub>
 
 ### [stackpilot](https://github.com/jurczykpawel/stackpilot)
 The AI-native self-hosting toolkit. Deploy 25+ production-optimized Docker apps to any VPS with a single command.
