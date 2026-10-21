@@ -5,7 +5,7 @@
 I use AI to build open source tools that replace expensive SaaS, so you can run your business on your own server for a fraction of the cost.
 
 <!-- COUNT:START -->
-**12** public projects &nbsp;·&nbsp; **⭐ 34** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · PHP · Python
+**13** public projects &nbsp;·&nbsp; **⭐ 34** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · PHP · Python
 <!-- COUNT:END -->
 &nbsp;·&nbsp; auto-updated nightly from GitHub 🤖
 
@@ -72,6 +72,11 @@ Universal REST API gateway for Poland's KSeF (National e-Invoice System), wrappi
 
 ### [mikrus-n8n-manager](https://github.com/jurczykpawel/mikrus-n8n-manager)
 —
+
+<sub>🟦 TypeScript</sub>
+
+### [playerstack](https://github.com/jurczykpawel/playerstack)
+Embeddable video player. One script tag. YouTube, Vimeo, MP4, HLS. Plugin-first. MIT.
 
 <sub>🟦 TypeScript</sub>
 
