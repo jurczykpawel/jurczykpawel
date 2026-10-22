@@ -5,7 +5,7 @@
 I use AI to build open source tools that replace expensive SaaS, so you can run your business on your own server for a fraction of the cost.
 
 <!-- COUNT:START -->
-**13** public projects &nbsp;·&nbsp; **⭐ 34** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · PHP · Python
+**14** public projects &nbsp;·&nbsp; **⭐ 35** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · JavaScript · PHP · Python
 <!-- COUNT:END -->
 &nbsp;·&nbsp; auto-updated nightly from GitHub 🤖
 
@@ -28,7 +28,7 @@ Self-hosted platform for selling digital products. Stripe payments, sales funnel
 ### [poststack](https://github.com/jurczykpawel/poststack)
 Self-hosted, source-available Facebook & Instagram automation: publishing & scheduling, inbox auto-replies, drip sequences and a contacts CRM. A ManyChat / Buffer alternative you fully own.
 
-<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 11</sub>
+<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 12</sub>
 
 ### [ai-api-catalog](https://github.com/jurczykpawel/ai-api-catalog)
 Compare prices & providers for 2000+ AI models — LLMs, video, image, audio
@@ -54,6 +54,11 @@ Free, fully local dictation for macOS — a self-hosted SuperWhisper alternative
 Burn word-level karaoke captions onto videos — local Whisper + ffmpeg/libass, zero SaaS.
 
 <sub>🟦 TypeScript</sub>
+
+### [claude-code-mods](https://github.com/jurczykpawel/claude-code-mods)
+Claude Code mods (cache keeper with keep-warm and smart compaction, goal meter, recording mode, collision guard). Continued from Nate Herk's claude-code-mods, MIT.
+
+<sub>🟨 JavaScript</sub>
 
 ### [countdown-timer](https://github.com/jurczykpawel/countdown-timer)
 Self-hosted animated countdown timer GIF generator for emails and web. 5 presets, boxes, auto-layout, evergreen timers, API key auth, multi-layer caching.
