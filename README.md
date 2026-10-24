@@ -5,7 +5,7 @@
 I use AI to build open source tools that replace expensive SaaS, so you can run your business on your own server for a fraction of the cost.
 
 <!-- COUNT:START -->
-**14** public projects &nbsp;·&nbsp; **⭐ 35** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · JavaScript · PHP · Python
+**14** public projects &nbsp;·&nbsp; **⭐ 37** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · JavaScript · PHP · Python
 <!-- COUNT:END -->
 &nbsp;·&nbsp; auto-updated nightly from GitHub 🤖
 
@@ -20,15 +20,15 @@ I use AI to build open source tools that replace expensive SaaS, so you can run 
 ## My Projects
 
 <!-- PROJECTS:START -->
+### [poststack](https://github.com/jurczykpawel/poststack)
+Self-hosted, source-available Facebook & Instagram automation: publishing & scheduling, inbox auto-replies, drip sequences and a contacts CRM. A ManyChat / Buffer alternative you fully own.
+
+<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 14</sub>
+
 ### [sellf](https://github.com/jurczykpawel/sellf)
 Self-hosted platform for selling digital products. Stripe payments, sales funnels, 0% platform fees.
 
 <sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 14</sub>
-
-### [poststack](https://github.com/jurczykpawel/poststack)
-Self-hosted, source-available Facebook & Instagram automation: publishing & scheduling, inbox auto-replies, drip sequences and a contacts CRM. A ManyChat / Buffer alternative you fully own.
-
-<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 12</sub>
 
 ### [ai-api-catalog](https://github.com/jurczykpawel/ai-api-catalog)
 Compare prices & providers for 2000+ AI models — LLMs, video, image, audio
