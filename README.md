@@ -5,7 +5,7 @@
 I use AI to build open source tools that replace expensive SaaS, so you can run your business on your own server for a fraction of the cost.
 
 <!-- COUNT:START -->
-**14** public projects &nbsp;·&nbsp; **⭐ 38** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · HTML · JavaScript · PHP · Python
+**12** public projects &nbsp;·&nbsp; **⭐ 39** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · PHP · Python
 <!-- COUNT:END -->
 &nbsp;·&nbsp; auto-updated nightly from GitHub 🤖
 
@@ -23,7 +23,7 @@ I use AI to build open source tools that replace expensive SaaS, so you can run 
 ### [poststack](https://github.com/jurczykpawel/poststack)
 Self-hosted, source-available Facebook & Instagram automation: publishing & scheduling, inbox auto-replies, drip sequences and a contacts CRM. A ManyChat / Buffer alternative you fully own.
 
-<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 15</sub>
+<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 16</sub>
 
 ### [sellf](https://github.com/jurczykpawel/sellf)
 Self-hosted platform for selling digital products. Stripe payments, sales funnels, 0% platform fees.
@@ -55,20 +55,10 @@ Burn word-level karaoke captions onto videos — local Whisper + ffmpeg/libass, 
 
 <sub>🟦 TypeScript</sub>
 
-### [claude-code-mods](https://github.com/jurczykpawel/claude-code-mods)
-Claude Code mods (cache keeper with keep-warm and smart compaction, goal meter, recording mode, collision guard). Continued from Nate Herk's claude-code-mods, MIT.
-
-<sub>🟨 JavaScript</sub>
-
 ### [countdown-timer](https://github.com/jurczykpawel/countdown-timer)
 Self-hosted animated countdown timer GIF generator for emails and web. 5 presets, boxes, auto-layout, evergreen timers, API key auth, multi-layer caching.
 
 <sub>🐘 PHP</sub>
-
-### [hyperframes-double-mount-repro](https://github.com/jurczykpawel/hyperframes-double-mount-repro)
-—
-
-<sub>🌐 HTML</sub>
 
 ### [ksef-gateway](https://github.com/jurczykpawel/ksef-gateway)
 Universal REST API gateway for Poland's KSeF (National e-Invoice System), wrapping the official Ministry of Finance C# SDK
