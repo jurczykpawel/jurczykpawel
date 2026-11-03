@@ -9,7 +9,10 @@ const USER = "jurczykpawel";
 const README = new URL("../../README.md", import.meta.url);
 
 // Repos we never want to surface (profile repo, link-in-bio, throwaways).
-const EXCLUDE = new Set(["jurczykpawel", "pavvel11", "littlelink"]);
+// Not my projects: profile repos, copies of other people's code that are not
+// GitHub forks (so `fork` is false), and bug reproductions for upstream issues.
+const EXCLUDE = new Set(["jurczykpawel", "pavvel11", "littlelink", "claude-code-mods"]);
+const EXCLUDE_SUFFIXES = ["-repro"];
 
 // Curated taglines override the GitHub description when present (nicer copy).
 const TAGLINES = {
@@ -55,7 +58,14 @@ async function fetchAllRepos() {
 }
 
 export function isOwnProject(r) {
-  return !r.fork && !r.archived && !r.private && !EXCLUDE.has(r.name.toLowerCase());
+  const name = r.name.toLowerCase();
+  return (
+    !r.fork &&
+    !r.archived &&
+    !r.private &&
+    !EXCLUDE.has(name) &&
+    !EXCLUDE_SUFFIXES.some((suffix) => name.endsWith(suffix))
+  );
 }
 
 export function renderProjects(repos) {

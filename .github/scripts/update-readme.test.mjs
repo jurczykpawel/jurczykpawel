@@ -188,3 +188,11 @@ test("fetchContributions throws when the search API responds with an error", asy
   const fetchImpl = async () => ({ ok: false, status: 403, text: async () => "rate limited" });
   await assert.rejects(() => fetchContributions(fetchImpl));
 });
+
+test("isOwnProject skips copies of other people's projects and bug repros", () => {
+  const base = { fork: false, archived: false, private: false };
+  assert.equal(isOwnProject({ ...base, name: "claude-code-mods" }), false);
+  assert.equal(isOwnProject({ ...base, name: "hyperframes-double-mount-repro" }), false);
+  assert.equal(isOwnProject({ ...base, name: "Handy", fork: true }), false);
+  assert.equal(isOwnProject({ ...base, name: "sellf" }), true);
+});
