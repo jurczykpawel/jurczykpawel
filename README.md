@@ -28,7 +28,7 @@ Self-hosted, source-available Facebook & Instagram automation: publishing & sche
 ### [sellf](https://github.com/jurczykpawel/sellf)
 Self-hosted platform for selling digital products. Stripe payments, sales funnels, 0% platform fees.
 
-<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 14</sub>
+<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 15</sub>
 
 ### [ai-api-catalog](https://github.com/jurczykpawel/ai-api-catalog)
 Compare prices & providers for 2000+ AI models — LLMs, video, image, audio
@@ -38,7 +38,7 @@ Compare prices & providers for 2000+ AI models — LLMs, video, image, audio
 ### [mailstack](https://github.com/jurczykpawel/mailstack)
 Self-hostable form-to-email + transactional email sender on Cloudflare Workers (Amazon SES + Cloudflare Turnstile). Multi-brand, branded templates, optional webhook adapters.
 
-<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 3</sub>
+<sub>🟦 TypeScript &nbsp;·&nbsp; ⭐ 2</sub>
 
 ### [stackpilot](https://github.com/jurczykpawel/stackpilot)
 The AI-native self-hosting toolkit. Deploy 25+ production-optimized Docker apps to any VPS with a single command.
