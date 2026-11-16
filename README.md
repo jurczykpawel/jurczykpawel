@@ -5,7 +5,7 @@
 I use AI to build open source tools that replace expensive SaaS, so you can run your business on your own server for a fraction of the cost.
 
 <!-- COUNT:START -->
-**12** public projects &nbsp;·&nbsp; **⭐ 41** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · PHP · Python
+**13** public projects &nbsp;·&nbsp; **⭐ 41** total stars &nbsp;·&nbsp; TypeScript · Shell · C# · PHP · Python
 <!-- COUNT:END -->
 &nbsp;·&nbsp; auto-updated nightly from GitHub 🤖
 
@@ -59,6 +59,11 @@ Burn word-level karaoke captions onto videos — local Whisper + ffmpeg/libass, 
 Self-hosted animated countdown timer GIF generator for emails and web. 5 presets, boxes, auto-layout, evergreen timers, API key auth, multi-layer caching.
 
 <sub>🐘 PHP</sub>
+
+### [immich-tizen](https://github.com/jurczykpawel/immich-tizen)
+Immich client for Samsung Tizen TVs: albums and years on shelves, photo and video slideshows, QR code setup from your phone.
+
+<sub>🟦 TypeScript</sub>
 
 ### [ksef-gateway](https://github.com/jurczykpawel/ksef-gateway)
 Universal REST API gateway for Poland's KSeF (National e-Invoice System), wrapping the official Ministry of Finance C# SDK
